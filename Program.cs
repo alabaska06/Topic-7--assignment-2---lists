@@ -68,22 +68,22 @@ namespace Topic_7__assignment_2___lists
 
                     if (RemoveByValue == "carrot")
                     {
-                        vegetables.Remove(vegetables[1].ToLower());
+                        vegetables.Remove(vegetables[1]);
                         Console.WriteLine("You removed Carrot.");
                     }
                     else if (RemoveByValue == "beet")
                     {
-                        vegetables.Remove(vegetables[2].ToLower());
+                        vegetables.Remove(vegetables[2]);
                         Console.WriteLine("You removed Beet.");
                     }
                     else if (RemoveByValue == "celery")
                     {
-                        vegetables.Remove(vegetables[3].ToLower());
+                        vegetables.Remove(vegetables[3]);
                         Console.WriteLine("You removed Celery.");
                     }
                     else if (RemoveByValue == "radish")
                     {
-                        vegetables.Remove(vegetables[4].ToLower());
+                        vegetables.Remove(vegetables[4]);
                         Console.WriteLine("You removed Radish.");
                     }
                     else if (RemoveByValue == "cabbage")
@@ -162,7 +162,7 @@ namespace Topic_7__assignment_2___lists
                 else if (choice == "5")
                 {
                     Console.WriteLine("You chose: Sort list\n");
-                    Console.WriteLine("Here'd the revised list in alphabetical order:");
+                    Console.WriteLine("Here'd the revised list in alphabetical order:\n");
                     vegetables.Sort();
                     for (int i = 1; i < vegetables.Count; i++)
                         Console.WriteLine($"{i}. {vegetables[i]}");
