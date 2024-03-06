@@ -1,4 +1,6 @@
-﻿namespace Topic_7__assignment_2___lists
+﻿using System.Collections.Generic;
+
+namespace Topic_7__assignment_2___lists
 {
     internal class Program
     {
@@ -9,6 +11,7 @@
             while (choice != "q") 
             {
                 List<string> vegetables = new List<string>();
+                vegetables.Add("");
                 vegetables.Add("Carrot");
                 vegetables.Add("Beet");
                 vegetables.Add("Celery");
@@ -18,23 +21,11 @@
                 Console.Clear(); 
                 Console.WriteLine("Here is your list of vegetables");
                 Console.WriteLine();
-                Console.WriteLine("1. Carrot");
-                Console.WriteLine("2. Beet");
-                Console.WriteLine("3. Celery");
-                Console.WriteLine("4. Raddish");
-                Console.WriteLine("5. Cabbage");
 
-                for (int i = 0; i < 1; i++)
-                {
-                    Console.WriteLine(string.Join($"{i}. ", vegetables));
-                }
-                for (int i = 0; i < 10; i++)
-                {
-                    
-                }
+                for (int i = 1; i < vegetables.Count; i++)
+                    Console.WriteLine($"{i}. {vegetables[i]}");
 
-
-                    Console.WriteLine("\n");
+                Console.WriteLine();
                 Console.WriteLine("Welcome to my menu.");
                 Console.WriteLine();
                 Console.WriteLine("Please select an option");
@@ -44,48 +35,26 @@
                 Console.WriteLine("3 – Search for a vegetable");
                 Console.WriteLine("4 – Add a vegetable");
                 Console.WriteLine("5 – Sort list");
-                Console.WriteLine("6 - Clear the list");
+                Console.WriteLine("6 - Clear the list\n");
                 choice = Console.ReadLine().ToLower().Trim();
                 Console.WriteLine();
 
                 if (choice == "1")
                 {
                     int RemoveByIndex;
-                    Console.WriteLine("You chose: Remove a vegetable by index ");
+                    Console.WriteLine("You chose: Remove a vegetable by index \n");
 
-                    Console.WriteLine("What vegetable would you like to remove? Type the number below.");
+                    Console.WriteLine("What vegetable would you like to remove? Type the number below.\n");
+
                     RemoveByIndex = Convert.ToInt32(Console.ReadLine());
 
-                    if (RemoveByIndex == 1)
-                    {
-                        vegetables.Remove("Carrot");
-                        Console.WriteLine("You removed Carrot.");
-                    }
-                    else if (RemoveByIndex == 2)
-                    {
-                        vegetables.Remove("Beet");
-                        Console.WriteLine("You removed Beet.");
-                    }
-                    else if (RemoveByIndex == 3)
-                    {
-                        vegetables.Remove("Celery");
-                        Console.WriteLine("You removed Celery.");
-                    }
-                    else if (RemoveByIndex == 4)
-                    {
-                        vegetables.Remove("Radish");
-                        Console.WriteLine("You removed Raddish.");
-                    }
-                    else if (RemoveByIndex == 5)
-                    {
-                        vegetables.Remove("Cabbage");
-                        Console.WriteLine("You removed Cabbage.");
-                    }
+                    vegetables.Remove(vegetables[RemoveByIndex]);
 
-                    Console.WriteLine(string.Join(", ", vegetables));
+                    Console.WriteLine("\nHere's your new list:\n");
+                    for (int i = 1; i < vegetables.Count; i++)
+                        Console.WriteLine($"{i}. {vegetables[i]}");
 
-
-                    Console.WriteLine("Hit ENTER to continue.");
+                    Console.WriteLine("\nHit ENTER to continue.");
                     Console.ReadLine();
                 }
                 else if (choice == "2")
@@ -99,35 +68,38 @@
 
                     if (RemoveByValue == "carrot")
                     {
-                        vegetables.Remove(vegetables[0].ToLower());
+                        vegetables.Remove(vegetables[1].ToLower());
                         Console.WriteLine("You removed Carrot.");
                     }
                     else if (RemoveByValue == "beet")
                     {
-                        vegetables.Remove(vegetables[1].ToLower());
+                        vegetables.Remove(vegetables[2].ToLower());
                         Console.WriteLine("You removed Beet.");
                     }
                     else if (RemoveByValue == "celery")
                     {
-                        vegetables.Remove(vegetables[2].ToLower());
+                        vegetables.Remove(vegetables[3].ToLower());
                         Console.WriteLine("You removed Celery.");
                     }
                     else if (RemoveByValue == "radish")
                     {
-                        vegetables.Remove(vegetables[3].ToLower());
+                        vegetables.Remove(vegetables[4].ToLower());
                         Console.WriteLine("You removed Radish.");
                     }
                     else if (RemoveByValue == "cabbage")
                     {
-                        vegetables.Remove(vegetables[4].ToLower());
+                        vegetables.Remove(vegetables[5]);
                         Console.WriteLine("You removed Cabbage.");
+                        
                     }
                     Console.WriteLine();
-                    Console.WriteLine("Heres your new list.");
+                    Console.WriteLine("Here's your new list.");
                     Console.WriteLine();
-                    Console.WriteLine(string.Join(", ", vegetables));
 
-                    Console.WriteLine("Hit ENTER to continue.");
+                    for (int i = 1; i < vegetables.Count; i++)
+                            Console.WriteLine($"{i}. {vegetables[i]}");
+
+                    Console.WriteLine("\nHit ENTER to continue.");
                     Console.ReadLine();
                 }
                 else if (choice == "3")
@@ -139,46 +111,74 @@
                     Console.WriteLine();
                     vegetablSearch = Console.ReadLine().ToLower().Trim();
 
-                    if (vegetablSearch == vegetables[0].ToLower())
+                    if (vegetablSearch == vegetables[1].ToLower())
                     {
-                        Console.WriteLine($"Carrot is in the list. It is number 1.");
-                    }
-                    else if (vegetablSearch == vegetables[1].ToLower())
-                    {
-                        Console.WriteLine($"Beet is in the list. It is number 2.");
+                        Console.WriteLine($"\nCarrot is in the list. It is number 1.");
                     }
                     else if (vegetablSearch == vegetables[2].ToLower())
                     {
-                        Console.WriteLine($"Celery is in the list. It is number 3.");
+                        Console.WriteLine($"\nBeet is in the list. It is number 2.");
                     }
                     else if (vegetablSearch == vegetables[3].ToLower())
                     {
-                        Console.WriteLine($"Radish is in the list. It is number 4.");
+                        Console.WriteLine($"\nCelery is in the list. It is number 3.");
                     }
                     else if (vegetablSearch == vegetables[4].ToLower())
                     {
-                        Console.WriteLine($"Cabbage is in the list. It is number 5.");
+                        Console.WriteLine($"\nRadish is in the list. It is number 4.");
+                    }
+                    else if (vegetablSearch == vegetables[5].ToLower())
+                    {
+                        Console.WriteLine($"\nCabbage is in the list. It is number 5.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("That is not on the list");
                     }
 
-                    Console.WriteLine("Hit ENTER to continue.");
+                    Console.WriteLine("\nHit ENTER to continue.");
                     Console.ReadLine();
                 }
                 else if (choice == "4")
                 {
+                    string addVeg;
                     Console.WriteLine("You chose: Add a vegetable");
+                    Console.WriteLine();
+                    Console.WriteLine("Please type the vegetable you'd like to add below:");
+                    Console.WriteLine();
+                    addVeg = Console.ReadLine();
+                    Console.WriteLine("");
 
-                    Console.WriteLine("Hit ENTER to continue.");
+                    vegetables.Add(addVeg);
+
+                    Console.WriteLine("\nGood choice! Here's your new list:\n ");
+
+                    for (int i = 1; i < vegetables.Count; i++)
+                        Console.WriteLine($"{i}. {vegetables[i]}");
+
+                    Console.WriteLine("\nHit ENTER to continue.");
                     Console.ReadLine();
                 }
                 else if (choice == "5")
                 {
-                    Console.WriteLine("You chose: Sort list");
-                    Console.WriteLine("Hit ENTER to continue.");
+                    Console.WriteLine("You chose: Sort list\n");
+                    Console.WriteLine("Here'd the revised list in alphabetical order:");
+                    vegetables.Sort();
+                    for (int i = 1; i < vegetables.Count; i++)
+                        Console.WriteLine($"{i}. {vegetables[i]}");
+
+                    Console.WriteLine("\nHit ENTER to continue.");
                     Console.ReadLine();
                 }
                 else if (choice == "6")
                 {
-                    Console.WriteLine("You chose: Clear the list");
+                    Console.WriteLine("You chose: Clear the list\n");
+                    Console.WriteLine("Here's your new list:\n\nREDACTED\n");
+
+                    vegetables.Clear();
+                    for (int i = 1; i < vegetables.Count; i++)
+                        Console.WriteLine($"{i}. {vegetables[i]}");
+
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
                 }
